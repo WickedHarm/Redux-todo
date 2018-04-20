@@ -12,7 +12,8 @@ export default class Todo extends React.Component {
         }
         this.toggleEdit = this.toggleEdit.bind(this);
     }
-    toggleEdit() {
+    toggleEdit(e) {
+        e.preventDefault();
         this.setState({
             isEdit: !this.state.isEdit
         })
@@ -31,7 +32,9 @@ export default class Todo extends React.Component {
               <i className="material-icons checkbox" >{this.props.completed ? "check_box" : "check_box_outline_blank"}</i>
             </button>
             {this.state.isEdit ? 
-            <input ref="inputEdit" defaultValue={this.props.title} type="text"/> 
+            <form action="post" onSubmit={this.toggleEdit}>
+                <input ref="inputEdit" defaultValue={this.props.title} type="text"/> 
+            </form>
             :
             <span ref="todoTitle" className="todo-item-title">{this.props.title}</span>
             }

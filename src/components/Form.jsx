@@ -31,7 +31,7 @@ export class Form extends React.Component {
 
     render() {
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form className="add-input" onSubmit={this.handleSubmit}>
                 <input value={this.state.value} type="text" onChange={this.handleChange}/>
                 <Button className="add" >Добавить</Button>
             </form>
