@@ -24,7 +24,25 @@ const reducer = (state=initialState.todos, action) => {
             return [...state, action.template];
 
         case "DELETE":
-           return state.filter( item => action.id !== item.id )
+           return state.filter( item => action.id !== item.id );
+
+        case "EDIT": 
+            return state.map( item => {
+                if (item.id === action.id) {
+                    item.title = action.title
+                }
+                return item;
+            } )
+             
+            
+        case "TOGGLE":
+            return state.map( item => {
+                if(item.id === action.id) {
+                    item.completed = !item.completed
+                }
+                return item;
+            } )    
+            
 
         default: 
             return state

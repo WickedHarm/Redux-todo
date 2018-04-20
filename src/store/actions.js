@@ -17,3 +17,18 @@ export function removeTodo(id) {
         id: id
     }
 }
+
+export function editTodo(id, title) {
+    return {
+        type: "EDIT",
+        id: id,
+        title: title
+    }
+}
+
+export function toggleTodo(id) {
+    return {
+        type: "TOGGLE",
+        id: id
+    }
+}

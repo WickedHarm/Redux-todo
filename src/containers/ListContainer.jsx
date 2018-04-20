@@ -11,7 +11,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onDelete: id => dispatch(actions.removeTodo(id))
+        onDelete: id => dispatch(actions.removeTodo(id)),
+        onEdit: (id, title) => dispatch(actions.editTodo(id, title)),
+        onToggle: (id) => dispatch(actions.toggleTodo(id))
     }
 }
 
