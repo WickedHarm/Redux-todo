@@ -19,7 +19,7 @@ const initialState = {
 }
 
 const reducer = (state=initialState, action) => {
-   return state;
+   return state.todos;
 }
 
 export default reducer;

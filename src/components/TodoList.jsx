@@ -7,7 +7,7 @@ import TodoItem from "./TodoItem";
 
 
 export function TodoList(props) {
-    const list = props.data.map(item =>
+    const list = props.todos.map(item =>
          <TodoItem 
               key={item.id}
               
