@@ -18,8 +18,19 @@ const initialState = {
     ]
 }
 
-const reducer = (state=initialState, action) => {
-   return state.todos;
+const reducer = (state=initialState.todos, action) => {
+    switch(action.type) {
+        case "ADD": 
+            return [...state, action.template];
+
+        case "DELETE":
+           return state.filter( item => action.id !== item.id )
+
+        default: 
+            return state
+    }
+    
+   
 }
 
 export default reducer;

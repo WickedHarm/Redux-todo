@@ -14,7 +14,7 @@ export function TodoList(props) {
               title={item.title}
               completed={item.completed}
               handleClick={() => props.handleClick(item.id)} 
-              handleDelete={() => props.handleDelete(item.id)}
+              handleDelete={() => props.onDelete(item.id)}
               handleEdit = {(title) => props.handleEdit(item.id, title)}
               />);
     return (
