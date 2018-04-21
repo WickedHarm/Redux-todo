@@ -3,11 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 
 
-
-// import {Header} from "./components/Header";
-// import {TodoList} from "./components/TodoList";
-// import {Form} from "./components/Form";
-
 import ListContainer from "./containers/ListContainer";
 import HeaderContainer from "./containers/HeaderContainer";
 import FormContainer from "./containers/FormContainer";
@@ -74,12 +69,9 @@ class App extends Component {
   
     return (
       <div className="App">
-        {/* <Header title="React Todo" data={this.state.todos}/> */}
         <HeaderContainer />
         <ListContainer />
         <FormContainer />
-        {/* <TodoList data={this.state.todos} handleClick={this.handleClick} handleDelete={this.handleDelete} handleEdit={this.handleEdit}/> */}
-        {/* <Form onAdd={this.handleAdd} /> */}
       </div>
     );
   }

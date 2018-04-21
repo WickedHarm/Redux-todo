@@ -10,7 +10,6 @@ export function TodoList(props) {
     const list = props.todos.map(item =>
          <TodoItem 
               key={item.id}
-              
               title={item.title}
               completed={item.completed}
               handleClick={() => props.onToggle(item.id)} 

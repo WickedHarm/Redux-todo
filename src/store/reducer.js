@@ -29,8 +29,13 @@ const reducer = (state=initialState.todos, action) => {
         case "EDIT": 
             return state.map( item => {
                 if (item.id === action.id) {
-                    item.title = action.title
+                    if (action.title !== "") {
+                        item.title = action.title
+
+                    }
+                    
                 }
+                
                 return item;
             } )
              

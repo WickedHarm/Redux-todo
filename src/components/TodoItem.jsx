@@ -8,24 +8,39 @@ export default class Todo extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isEdit: false
-        }
+            isEdit: false,
+            inputVal: ""
+        };
+       
+
         this.toggleEdit = this.toggleEdit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     toggleEdit(e) {
         e.preventDefault();
         this.setState({
-            isEdit: !this.state.isEdit
+            isEdit: !this.state.isEdit,
+            inputVal: this.props.title
         })
+        
         if (this.state.isEdit) {
-            this.props.handleEdit(this.refs.inputEdit.value);
+           
+            this.props.handleEdit(this.state.inputVal);
+            
         }
         
+    }
+
+    handleChange(e) {
+        this.setState({
+            inputVal: e.target.value
+        })
     }
 
    
    
     render() {
+        
         return (
             <div className={`todo-item${this.props.completed ? ' completed' : ""}`}>
             <button onClick={this.props.handleClick}>
@@ -33,7 +48,13 @@ export default class Todo extends React.Component {
             </button>
             {this.state.isEdit ? 
             <form action="post" onSubmit={this.toggleEdit}>
-                <input ref="inputEdit" defaultValue={this.props.title} type="text"/> 
+                <input autoFocus value={this.state.inputVal} type="text" onChange={this.handleChange}
+                       onFocus={(e) => {
+                           const val = e.target.value;
+                            e.target.value = "";
+                            e.target.value = val;
+                        }}
+                /> 
             </form>
             :
             <span ref="todoTitle" className="todo-item-title">{this.props.title}</span>
