@@ -1,14 +1,18 @@
+import axiosInstance from "../axios";
+
 let nextId = 5;
 
-export function addTodo(title) {
-    return {
-        type: "ADD",
-        template: {
-            id: nextId++,
-            title: title,
-            completed: false
-        }
-    }
+export function addTodo(title, todoLen) {
+   return axiosInstance.put(`/todos/${todoLen}/.json`, {
+        id: todoLen,
+        title: title,
+        completed: false
+    }).then( response => response.data )
+      .then( todo => ({
+          type: "ADD",
+          template: todo
+      }) )   
+   
 }
 
 export function removeTodo(id) {
@@ -34,7 +38,7 @@ export function toggleTodo(id) {
 }
 
 export function getTodoList(todoList) {
-    console.log(todoList)
+    
     return {
         type: "GET",
         todos: todoList

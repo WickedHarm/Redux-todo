@@ -4,10 +4,16 @@ import * as actions from "../store/actions";
 
 function mapDispatchToProps(dispatch) {
     return {
-        onAdd: title => dispatch(actions.addTodo(title))
+        onAdd: (title, todoLen) => dispatch(actions.addTodo(title, todoLen))
     }
 }
 
-const FormContainer = connect(null, mapDispatchToProps)(Form);
+function mapStateToProps(state) {
+    return {
+        todoLen: state.length
+    }
+}
+
+const FormContainer = connect(mapStateToProps, mapDispatchToProps)(Form);
 
 export default FormContainer;

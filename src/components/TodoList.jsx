@@ -7,7 +7,7 @@ import TodoItem from "./TodoItem";
 export class TodoList extends React.Component {
 
     componentDidMount() {
-        axiosInstance.get("/todos.json")
+         axiosInstance.get("/todos.json")
             .then( response =>  {
                 this.props.getTodoList(response.data)
         } )

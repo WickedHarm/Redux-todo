@@ -1,4 +1,4 @@
-
+import axiosInstance from "../axios";
 
 const initialState = {
     todos: [
@@ -23,7 +23,7 @@ const initialState = {
 
 const reducer = (state=initialState.todos, action) => {
     switch(action.type) {
-        case "ADD": 
+        case "ADD":
             return [...state, action.template];
 
         case "DELETE":

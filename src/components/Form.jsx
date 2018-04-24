@@ -16,7 +16,8 @@ export class Form extends React.Component {
         e.preventDefault();
         let title = this.state.value;
         if (title) {
-            this.props.onAdd(title)
+            
+            this.props.onAdd(title, this.props.todoLen)
             this.setState({
                 value: ""
             })
