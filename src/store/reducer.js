@@ -22,6 +22,7 @@ const initialState = {
 
 
 const reducer = (state=initialState.todos, action) => {
+    
     switch(action.type) {
         case "ADD":
             return [...state, action.template];
@@ -44,7 +45,9 @@ const reducer = (state=initialState.todos, action) => {
              
             
         case "TOGGLE":
+        
             return state.map( item => {
+                console.log(item)
                 if(item.id === action.id) {
                     item.completed = !item.completed
                 }

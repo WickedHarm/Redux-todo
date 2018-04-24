@@ -43,7 +43,7 @@ export default class Todo extends React.Component {
         
         return (
             <div className={`todo-item${this.props.completed ? ' completed' : ""}`}>
-            <button onClick={this.props.handleClick}>
+            <button onClick={this.props.handleComplete}>
               <i className="material-icons checkbox" >{this.props.completed ? "check_box" : "check_box_outline_blank"}</i>
             </button>
             {this.state.isEdit ? 

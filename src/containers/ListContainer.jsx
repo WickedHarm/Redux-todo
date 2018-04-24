@@ -13,7 +13,7 @@ function mapDispatchToProps(dispatch) {
     return {
         onDelete: id => dispatch(actions.removeTodo(id)),
         onEdit: (id, title) => dispatch(actions.editTodo(id, title)),
-        onToggle: (id) => dispatch(actions.toggleTodo(id)),
+        onToggle: (id, completed) => dispatch(actions.toggleTodo(id, completed)),
         getTodoList: (resp) => dispatch(actions.getTodoList(resp))
     }
 }

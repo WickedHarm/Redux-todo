@@ -16,25 +16,37 @@ export function addTodo(title, todoLen) {
 }
 
 export function removeTodo(id) {
-    return {
-        type: "DELETE",
-        id: id
-    }
+    return axiosInstance.delete(`/todos/${id}.json`)
+        .then( response => ({
+            type: "DELETE",
+            id: id
+        }) )
+    
 }
 
 export function editTodo(id, title) {
-    return {
-        type: "EDIT",
-        id: id,
+    return axiosInstance.patch(`/todos/${id}/.json`, {
         title: title
-    }
+    })
+        .then( response => ({
+            type: "EDIT",
+            id: id,
+            title: title
+        }) )
+    
 }
 
-export function toggleTodo(id) {
-    return {
-        type: "TOGGLE",
-        id: id
-    }
+export function toggleTodo(id, completed) {
+    return axiosInstance.patch(`/todos/${id}.json`, {
+        completed: !completed
+    })
+        .then( response => ({
+            type: "TOGGLE",
+            id: id,
+            completed: response.completed
+        }) )
+    
+ 
 }
 
 export function getTodoList(todoList) {

@@ -19,7 +19,7 @@ export class TodoList extends React.Component {
                  key={item.id}
                  title={item.title}
                  completed={item.completed}
-                 handleClick={() => this.props.onToggle(item.id)} 
+                 handleComplete={() => this.props.onToggle(item.id, item.completed)} 
                  handleDelete={() => this.props.onDelete(item.id)}
                  handleEdit = {(title) => this.props.onEdit(item.id, title)}
                  />);
