@@ -1,3 +1,5 @@
+
+
 const initialState = {
     todos: [
         {
@@ -17,6 +19,7 @@ const initialState = {
         }
     ]
 }
+
 
 const reducer = (state=initialState.todos, action) => {
     switch(action.type) {
@@ -46,7 +49,10 @@ const reducer = (state=initialState.todos, action) => {
                     item.completed = !item.completed
                 }
                 return item;
-            } )    
+            } )
+            
+        case "GET": 
+            return action.todos   
             
 
         default: 

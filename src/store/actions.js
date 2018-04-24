@@ -32,3 +32,11 @@ export function toggleTodo(id) {
         id: id
     }
 }
+
+export function getTodoList(todoList) {
+    console.log(todoList)
+    return {
+        type: "GET",
+        todos: todoList
+    }
+}
