@@ -6,7 +6,10 @@ function mapDispatchToProps(dispatch) {
     return {
         onAdd: (title, todoLen) => {
             dispatch(actions.spinnerOn())
-            dispatch(actions.addTodo(title, todoLen)).then(() => dispatch(actions.spinnerOff()))
+            dispatch(actions.addTodo(title, todoLen))
+                .then(() => dispatch(actions.spinnerOff()))
+                .then( () => dispatch(actions.noError()) )
+                .catch( (e)=> dispatch(actions.error(e)) )
         }
     }
 }

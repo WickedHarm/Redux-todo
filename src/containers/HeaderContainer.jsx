@@ -5,7 +5,8 @@ function mapStateToProps(state) {
     
     return {
         todos: state.reducer,
-        spinner: state.spinReducer
+        spinner: state.spinReducer,
+        errorReducer: state.errorReducer
     }
 }
 

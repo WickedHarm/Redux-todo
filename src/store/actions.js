@@ -73,6 +73,7 @@ export function getTodoList() {
         type: "GET",
         todos: todoArr
     }) )
+   
 }
 
 
@@ -89,5 +90,23 @@ export function spinnerOff() {
     return {
         type: "LOADED",
         loading: false
+    }
+}
+
+////////////////ERROR///////////////////
+
+export function error(e) {
+    console.log(e);
+    return {
+        type: "ERROR",
+        error: true,
+        message: e
+    }
+}
+
+export function noError() {
+    return {
+        type: "ERROR",
+        error: false
     }
 }

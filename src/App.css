@@ -16,18 +16,29 @@ header {
   padding: 20px;
 }
 
-.well-done {
-  background-color: rgb(119, 230, 15);
-}
+
+
 
 header {
   display: flex;
   justify-content: space-around;
 }
+header.well-done {
+  background-color: rgb(119, 230, 15);
+}
+header.error {
+  background-color: orangered;
+}
 
 .app-title {
   margin: 0 auto;
 }
+
+.error-message {
+  font-size: 30px;
+  
+}
+
 
 header >* {
   align-self: center;
