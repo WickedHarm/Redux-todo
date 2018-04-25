@@ -1,17 +1,14 @@
 import React from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group"
-import axiosInstance from "../axios";
 
 import TodoItem from "./TodoItem";
 
 export class TodoList extends React.Component {
-
+   
     componentDidMount() {
-         axiosInstance.get("/todos.json")
-            .then( response =>  {
-                this.props.getTodoList(response.data)
-        } )
-        }
+       
+        this.props.getTodoList()
+    }
 
     render() {
         const list = this.props.todos.map(item =>

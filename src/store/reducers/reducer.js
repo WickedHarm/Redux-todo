@@ -1,27 +1,7 @@
-import axiosInstance from "../axios";
-
-const initialState = {
-    todos: [
-        {
-            id: 1,
-            title: 'Изучить JavaScript',
-            completed: true
-        },
-        {
-            id: 2,
-            title: 'Изучить React',
-            completed: true
-        },
-        {
-            id: 3,
-            title: 'Изучить Redux',
-            completed: false
-        }
-    ]
-}
 
 
-const reducer = (state=initialState.todos, action) => {
+
+const reducer = (state=[], action) => {
     
     switch(action.type) {
         case "ADD":
@@ -47,7 +27,6 @@ const reducer = (state=initialState.todos, action) => {
         case "TOGGLE":
         
             return state.map( item => {
-                console.log(item)
                 if(item.id === action.id) {
                     item.completed = !item.completed
                 }

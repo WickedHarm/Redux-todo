@@ -2,14 +2,16 @@ import { connect } from "react-redux";
 import { Header } from "../components/Header";
 
 function mapStateToProps(state) {
+    
     return {
-        todos: state
+        todos: state.reducer,
+        spinner: state.spinReducer
     }
 }
 
 
 
 
-const ListContainer = connect(mapStateToProps)(Header);
+const HeaderContainer = connect(mapStateToProps)(Header);
 
-export default ListContainer;
+export default HeaderContainer;

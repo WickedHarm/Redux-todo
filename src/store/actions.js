@@ -1,21 +1,23 @@
 import axiosInstance from "../axios";
 
-let nextId = 5;
+
 
 export function addTodo(title, todoLen) {
-   return axiosInstance.put(`/todos/${todoLen}/.json`, {
-        id: todoLen,
+    const id = Date.now();
+   return axiosInstance.put(`/todos/${id}.json`, {
+        id: id,
         title: title,
         completed: false
-    }).then( response => response.data )
-      .then( todo => ({
-          type: "ADD",
-          template: todo
-      }) )   
+    }).then( response => ({
+        type: "ADD",
+        template: response.data 
+    }) )
+      
    
 }
 
 export function removeTodo(id) {
+    
     return axiosInstance.delete(`/todos/${id}.json`)
         .then( response => ({
             type: "DELETE",
@@ -49,10 +51,43 @@ export function toggleTodo(id, completed) {
  
 }
 
-export function getTodoList(todoList) {
-    
-    return {
+export function getTodoList() {
+   
+   return axiosInstance.get("/todos.json")
+    .then( response =>  {
+        
+        let todoArr = [];
+        for (let key in response.data) {
+            todoArr.push({
+                id: response.data[key].id,
+                title: response.data[key].title,
+                completed: response.data[key].completed
+            })
+        }
+        
+       return todoArr;
+      
+       
+} )
+    .then( todoArr => ({
         type: "GET",
-        todos: todoList
+        todos: todoArr
+    }) )
+}
+
+
+//////////////////Spinner////////////////////
+
+export function spinnerOn() {
+    return {
+        type: "LOADING",
+        loading: true
+    }
+}
+
+export function spinnerOff() {
+    return {
+        type: "LOADED",
+        loading: false
     }
 }

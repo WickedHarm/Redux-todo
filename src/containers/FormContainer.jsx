@@ -4,13 +4,16 @@ import * as actions from "../store/actions";
 
 function mapDispatchToProps(dispatch) {
     return {
-        onAdd: (title, todoLen) => dispatch(actions.addTodo(title, todoLen))
+        onAdd: (title, todoLen) => {
+            dispatch(actions.spinnerOn())
+            dispatch(actions.addTodo(title, todoLen)).then(() => dispatch(actions.spinnerOff()))
+        }
     }
 }
 
 function mapStateToProps(state) {
     return {
-        todoLen: state.length
+        todoList: state.reducer
     }
 }
 
