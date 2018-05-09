@@ -73,7 +73,7 @@ export function getTodoList() {
         type: "GET",
         todos: todoArr
     }) )
-   
+
 }
 
 
